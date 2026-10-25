@@ -18,6 +18,7 @@ const ABI_INFO: Record<string, string> = {
 
 function Download() {
   const release = Route.useLoaderData()
+  if (!release) return <Unavailable />
   const [main, ...others] = release.apks
   return (
     <main>
@@ -104,6 +105,27 @@ function Download() {
           </p>
         </div>
       </section>
+    </main>
+  )
+}
+
+/** GitHub couldn't be reached: send people straight to the releases page. */
+function Unavailable() {
+  return (
+    <main>
+      <PageHeader
+        label="Download"
+        title="Get Lumen on GitHub."
+        lede={
+          <>
+            The release list didn't load just now. Every release, with its checksums, is on{' '}
+            <a className="inline-link" href={`${GITHUB_URL}/releases/latest`}>
+              GitHub
+            </a>
+            .
+          </>
+        }
+      />
     </main>
   )
 }

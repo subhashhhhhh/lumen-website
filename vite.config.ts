@@ -15,7 +15,8 @@ export default defineConfig({
         enabled: true,
         crawlLinks: true,
         // Lumen AI's API reference is Dokka's own static HTML (public/ai/reference): served as is.
-        filter: ({ path }) => !path.startsWith('/ai/reference'),
+        // Download and Changelog render on the Worker with the current releases (src/releases.ts).
+        filter: ({ path }) => !path.startsWith('/ai/reference') && path !== '/download' && path !== '/changelog',
       },
     }),
     viteReact(),

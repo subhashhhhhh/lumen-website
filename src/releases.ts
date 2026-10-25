@@ -1,70 +1,31 @@
 import { createServerFn } from '@tanstack/react-start'
-import { marked } from 'marked'
 
-// Releases come from GitHub when the site is built (pages are prerendered), so a new Lumen
-// release needs a redeploy of the site. Visitors' browsers never talk to GitHub.
+// Releases come from GitHub on the Worker, when someone opens /download or /changelog, and stay
+// in Cloudflare's cache for a few minutes: a new Lumen release shows up without a redeploy.
+// Visitors' browsers never talk to GitHub. GITHUB_TOKEN (a Worker secret, read-only) lifts
+// GitHub's low limit for unauthenticated requests, which Cloudflare's shared servers can hit.
 
 export type Apk = { abi: string; name: string; size: number; url: string; sha256?: string }
 export type Release = { version: string; date: string; url: string; notesHtml: string; apks: Apk[] }
 
-const REPO = 'subhashhhhhh/Lumen'
-const ABI_ORDER = ['arm64-v8a', 'armeabi-v7a', 'x86_64', 'universal']
-
-type GhAsset = { name: string; size: number; browser_download_url: string }
-type GhRelease = { tag_name: string; published_at: string; html_url: string; body: string; draft: boolean; assets: GhAsset[] }
-
-async function gh<T>(url: string): Promise<T> {
-  const res = await fetch(url, { headers: { 'User-Agent': 'lumen-photos.app', Accept: 'application/vnd.github+json' } })
-  if (!res.ok) throw new Error(`GitHub ${res.status} for ${url}`)
-  return res.json() as Promise<T>
-}
-
-// The release notes end with a "Which file to download" table and the certificate. The site
-// shows those on /download, so the changelog keeps only what changed.
-function changesOnly(body: string) {
-  const cut = body.search(/^## Which file/m)
-  return (cut >= 0 ? body.slice(0, cut) : body).trim()
-}
-
-async function toRelease(r: GhRelease, withSums: boolean): Promise<Release> {
-  let sums = new Map<string, string>()
-  const sumsAsset = r.assets.find((a) => a.name === 'SHA256SUMS.txt')
-  if (withSums && sumsAsset) {
-    const text = await (await fetch(sumsAsset.browser_download_url, { headers: { 'User-Agent': 'lumen-photos.app' } })).text()
-    sums = new Map(
-      text
-        .split('\n')
-        .map((line) => line.trim().split(/\s+/))
-        .filter((p) => p.length === 2)
-        .map(([hash, file]) => [file.replace(/^\*/, ''), hash]),
-    )
+/** The latest release; null when GitHub can't be reached (the page links to GitHub instead). */
+export const getLatestRelease = createServerFn({ method: 'GET' }).handler(async (): Promise<Release | null> => {
+  try {
+    return await (await import('./releases.server')).latestRelease()
+  } catch (e) {
+    console.error(e)
+    return null
   }
-  const apks = r.assets
-    .filter((a) => a.name.endsWith('.apk'))
-    .map((a) => ({
-      abi: ABI_ORDER.find((abi) => a.name.includes(`-${abi}.`)) ?? a.name,
-      name: a.name,
-      size: a.size,
-      url: a.browser_download_url,
-      sha256: sums.get(a.name),
-    }))
-    .sort((a, b) => ABI_ORDER.indexOf(a.abi) - ABI_ORDER.indexOf(b.abi))
-  return {
-    version: r.tag_name.replace(/^v/, ''),
-    date: r.published_at,
-    url: r.html_url,
-    notesHtml: await marked.parse(changesOnly(r.body ?? '')),
-    apks,
-  }
-}
-
-export const getLatestRelease = createServerFn({ method: 'GET' }).handler(async () => {
-  return toRelease(await gh<GhRelease>(`https://api.github.com/repos/${REPO}/releases/latest`), true)
 })
 
-export const getReleases = createServerFn({ method: 'GET' }).handler(async () => {
-  const all = await gh<GhRelease[]>(`https://api.github.com/repos/${REPO}/releases?per_page=50`)
-  return Promise.all(all.filter((r) => !r.draft).map((r) => toRelease(r, false)))
+/** Every release, newest first; null when GitHub can't be reached. */
+export const getReleases = createServerFn({ method: 'GET' }).handler(async (): Promise<Release[] | null> => {
+  try {
+    return await (await import('./releases.server')).allReleases()
+  } catch (e) {
+    console.error(e)
+    return null
+  }
 })
 
 export const CERT_SHA256 =

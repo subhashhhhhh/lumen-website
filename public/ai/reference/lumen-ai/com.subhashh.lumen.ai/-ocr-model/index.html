@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>OcrModel</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
+                    lumen-ai
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+0.1.0        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":ai/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":ai/release"
+                                       data-filter=":ai/release"/>
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    lumen-ai
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="lumen-ai::com.subhashh.lumen.ai/OcrModel///PointingToDeclaration//-432196720">
+  <div class="breadcrumbs"><a href="../../../index.html">lumen-ai</a><span class="delimiter">/</span><a href="../index.html">com.subhashh.lumen.ai</a><span class="delimiter">/</span><span class="current">OcrModel</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Ocr</span><wbr></wbr><span><span>Model</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">OcrModel</a><span class="source-link-wrapper"><span class="source-link" data-element-type="source-link">(<a href="https://github.com/subhashhhhhh/lumen-ai/tree/main/ai/src/main/java/com/subhashh/lumen/ai/ModelCatalog.kt#L88">source</a>)</span></span></div><p class="paragraph">Reading text in photos: Baidu's PP-OCRv6 small (Apache 2.0), text detection and recognition, 50 languages (Chinese, English, Japanese, Latin scripts), plus our GPU conversion of the detector (tools/ocr/; the repo also has GPU line readers, tried and left out: no faster on real lines). Downloaded with either Smart Search tier. <code class="lang-kotlin">rec.yml</code> carries the recognizer's character list.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-1497059369%2FProperties%2F-432196720" anchor-label="bytes" id="-1497059369%2FProperties%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="bytes.html"><span><span>bytes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1497059369%2FProperties%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="bytes.html">bytes</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="709174465%2FProperties%2F-432196720" anchor-label="Commit" id="709174465%2FProperties%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-commit.html"><span><span>Commit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="709174465%2FProperties%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-commit.html">Commit</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="765995167%2FProperties%2F-432196720" anchor-label="DetGpu" id="765995167%2FProperties%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-det-gpu.html"><span>Det</span><wbr></wbr><span><span>Gpu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="765995167%2FProperties%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-det-gpu.html">DetGpu</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Detection for LiteRT's GPU, 960×960; used where <a href="../-gpu-check/index.html">GpuCheck</a> passes.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1913595061%2FProperties%2F-432196720" anchor-label="files" id="-1913595061%2FProperties%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="files.html"><span><span>files</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1913595061%2FProperties%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="files.html">files</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-model-file/index.html">ModelFile</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="899626406%2FProperties%2F-432196720" anchor-label="Repo" id="899626406%2FProperties%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-repo.html"><span><span>Repo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="899626406%2FProperties%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-repo.html">Repo</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-185130488%2FFunctions%2F-432196720" anchor-label="complete" id="-185130488%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="complete.html"><span><span>complete</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-185130488%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="complete.html"><span class="token function">complete</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Every file of this version is in place; otherwise Settings offers the rest as an update.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-476795278%2FFunctions%2F-432196720" anchor-label="dir" id="-476795278%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="dir.html"><span><span>dir</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-476795278%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="dir.html"><span class="token function">dir</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/File.html">File</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-744846561%2FFunctions%2F-432196720" anchor-label="installed" id="-744846561%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="installed.html"><span><span>installed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-744846561%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="installed.html"><span class="token function">installed</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Text can be read; an earlier download, missing this version's newer files, still reads.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1737241745%2FFunctions%2F-432196720" anchor-label="recFile" id="1737241745%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="rec-file.html"><span>rec</span><wbr></wbr><span><span>File</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1737241745%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="rec-file.html"><span class="token function">recFile</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/File.html">File</a></div><div class="brief "><p class="paragraph">The line reader to use: the int8 one once downloaded, else an earlier download's.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1687353399%2FFunctions%2F-432196720" anchor-label="removeUnused" id="-1687353399%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-unused.html"><span>remove</span><wbr></wbr><span><span>Unused</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1687353399%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="remove-unused.html"><span class="token function">removeUnused</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Deletes files this version doesn't use: GPU line readers, and the old reader once replaced.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2023028808%2FFunctions%2F-432196720" anchor-label="url" id="2023028808%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="url.html"><span><span>url</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2023028808%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="url.html"><span class="token function">url</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">file<span class="token operator">: </span><a href="../-model-file/index.html">ModelFile</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Lumen AI · Apache License 2.0 · <a href="https://lumen-photos.app/ai">Guide</a> · <a href="https://github.com/subhashhhhhh/lumen-ai">GitHub</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

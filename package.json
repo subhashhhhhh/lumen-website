@@ -10,7 +10,7 @@
     "generate-routes": "tsr generate",
     "build": "vite build",
     "preview": "npm run build && vite preview",
-    "deploy": "npm run ai-reference && npm run build && wrangler deploy",
+    "deploy": "npm run build && wrangler deploy",
     "cf-typegen": "wrangler types",
     "ai-reference": "sh scripts/ai-reference.sh"
   },

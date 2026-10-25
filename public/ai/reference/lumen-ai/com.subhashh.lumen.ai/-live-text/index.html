@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>LiveText</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
+                    lumen-ai
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+0.1.0        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":ai/release">release</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":ai/release"
+                                       data-filter=":ai/release"/>
+                                <span class="checkbox--icon"></span>
+                                release
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    lumen-ai
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="lumen-ai::com.subhashh.lumen.ai/LiveText///PointingToDeclaration//-432196720">
+  <div class="breadcrumbs"><a href="../../../index.html">lumen-ai</a><span class="delimiter">/</span><a href="../index.html">com.subhashh.lumen.ai</a><span class="delimiter">/</span><span class="current">LiveText</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Live</span><wbr></wbr><span><span>Text</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">LiveText</a><span class="source-link-wrapper"><span class="source-link" data-element-type="source-link">(<a href="https://github.com/subhashhhhhh/lumen-ai/tree/main/ai/src/main/java/com/subhashh/lumen/ai/LiveText.kt#L27">source</a>)</span></span></div><p class="paragraph">Live Text: the text in the photo on screen, with where every character is, so it can be selected and copied. Text Reading keeps each photo's lines as it indexes (<a href="../-text-store/lines.html">TextStore.lines</a>), so an indexed photo has them straight away; others are read on demand at up to <span data-unresolved-link="com.subhashh.lumen.ai/LiveText/ReadSide/#/PointingToDeclaration/">ReadSide</span>, and kept the same way. The last few are also held in memory. The reader loads as the viewer opens (<a href="warm.html">warm</a>) and stays a little after it closes (<a href="release.html">release</a>).</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="2036392638%2FClasslikes%2F-432196720" anchor-label="Result" id="2036392638%2FClasslikes%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-result/index.html"><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2036392638%2FClasslikes%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-result/index.html">Result</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>lines<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-text-reader/-line/index.html">TextReader.Line</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>width<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>height<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><span data-unresolved-link="com.subhashh.lumen.ai/LiveText.Result//#kotlin.collections.List[com.subhashh.lumen.ai.TextReader.Line]#kotlin.Int#kotlin.Int/PointingToCallableParameters(0)/">lines</span> with corners in pixels of a <span data-unresolved-link="com.subhashh.lumen.ai/LiveText.Result//#kotlin.collections.List[com.subhashh.lumen.ai.TextReader.Line]#kotlin.Int#kotlin.Int/PointingToCallableParameters(1)/">width</span>×<span data-unresolved-link="com.subhashh.lumen.ai/LiveText.Result//#kotlin.collections.List[com.subhashh.lumen.ai.TextReader.Line]#kotlin.Int#kotlin.Int/PointingToCallableParameters(2)/">height</span> image: the photo as displayed.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="492693015%2FFunctions%2F-432196720" anchor-label="cached" id="492693015%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cached.html"><span><span>cached</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="492693015%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="cached.html"><span class="token function">cached</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">item<span class="token operator">: </span><a href="../-media-ref/index.html">MediaRef</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-result/index.html">LiveText.Result</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2080008116%2FFunctions%2F-432196720" anchor-label="decode" id="2080008116%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="decode.html"><span><span>decode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2080008116%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="decode.html"><span class="token function">decode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-text-reader/-line/index.html">TextReader.Line</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1283468080%2FFunctions%2F-432196720" anchor-label="encode" id="-1283468080%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="encode.html"><span><span>encode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1283468080%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="encode.html"><span class="token function">encode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">lines<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-text-reader/-line/index.html">TextReader.Line</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Lines to bytes for <a href="../-text-store/index.html">TextStore</a>: text, corners, and each character's span.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-105547397%2FFunctions%2F-432196720" anchor-label="read" id="-105547397%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="read.html"><span><span>read</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-105547397%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="read.html"><span class="token function">read</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">item<span class="token operator">: </span><a href="../-media-ref/index.html">MediaRef</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-result/index.html">LiveText.Result</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The photo's text, or null when there's no text reader or it can't be read.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-490067069%2FFunctions%2F-432196720" anchor-label="readVideoFrame" id="-490067069%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="read-video-frame.html"><span>read</span><wbr></wbr><span>Video</span><wbr></wbr><span><span>Frame</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-490067069%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="read-video-frame.html"><span class="token function">readVideoFrame</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">item<span class="token operator">: </span><a href="../-media-ref/index.html">MediaRef</a><span class="token punctuation">, </span></span><span class="parameter ">atMs<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-result/index.html">LiveText.Result</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The text in <a href="read-video-frame.html">item</a> (a video) at <a href="read-video-frame.html">atMs</a>: the frame on screen while paused. Its positions aren't kept on disk (every moment is a different frame; the last few stay in memory), but lines the video's search index lacks are added to it: the indexer only samples frames.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="466407597%2FFunctions%2F-432196720" anchor-label="release" id="466407597%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="release.html"><span><span>release</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="466407597%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="release.html"><span class="token function">release</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The viewer closed: frees the text models after <span data-unresolved-link="com.subhashh.lumen.ai/LiveText/KeepMs/#/PointingToDeclaration/">KeepMs</span> unless it opens again first.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1652022670%2FFunctions%2F-432196720" anchor-label="stored" id="1652022670%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="stored.html"><span><span>stored</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1652022670%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="stored.html"><span class="token function">stored</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">item<span class="token operator">: </span><a href="../-media-ref/index.html">MediaRef</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/index.html">Pair</a><span class="token operator">&lt;</span><a href="-result/index.html">LiveText.Result</a><span class="token operator">?</span><span class="token punctuation">, </span><a href="../-text-store/-known/index.html">TextStore.Known</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">What's known without reading: the lines kept on disk (null when there are none), and whether the index found no words at all, so there's nothing to read.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="101113606%2FFunctions%2F-432196720" anchor-label="warm" id="101113606%2FFunctions%2F-432196720" data-filterable-set=":ai/release"></a>
+          <div class="table-row table-row_content" data-filterable-current=":ai/release" data-filterable-set=":ai/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="warm.html"><span><span>warm</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="101113606%2FFunctions%2F-432196720"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ai/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="warm.html"><span class="token function">warm</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Loads the reader ahead of the first photo (the viewer opened).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Lumen AI · Apache License 2.0 · <a href="https://lumen-photos.app/ai">Guide</a> · <a href="https://github.com/subhashhhhhh/lumen-ai">GitHub</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
