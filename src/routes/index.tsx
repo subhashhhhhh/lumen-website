@@ -312,7 +312,7 @@ const FAQ: [string, React.ReactNode][] = [
     'Is it on F-Droid or Google Play?',
     <>
       Not yet. Lumen is on GitHub today, and it updates itself. F-Droid and IzzyOnDroid come first, then Google Play.
-      See the <a className="inline-link" href="/roadmap">roadmap</a>.
+      See the <a className="inline-link" href="/roadmap/">roadmap</a>.
     </>,
   ],
   [
@@ -339,7 +339,7 @@ const FAQ: [string, React.ReactNode][] = [
   [
     'Can I use these features in my own app?',
     <>
-      Yes. The search, text, face and subtitle engines are a separate library, <a className="inline-link" href="/ai">Lumen AI</a>,
+      Yes. The search, text, face and subtitle engines are a separate library, <a className="inline-link" href="/ai/">Lumen AI</a>,
       under the same license. It is at an early stage.
     </>,
   ],

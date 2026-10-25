@@ -78,7 +78,7 @@ function Download() {
             <code>{GITHUB_URL.replace('https://', '')}</code> to Obtainium instead.
           </p>
           <p className="body">
-            F-Droid, IzzyOnDroid and Google Play are on the <a className="inline-link" href="/roadmap">roadmap</a>.
+            F-Droid, IzzyOnDroid and Google Play are on the <a className="inline-link" href="/roadmap/">roadmap</a>.
           </p>
         </div>
       </section>

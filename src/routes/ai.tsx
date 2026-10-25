@@ -54,7 +54,7 @@ function LumenAiGuide() {
               </a>
             ))}
             <p className="guide__toc-title">More</p>
-            <a href="/ai/reference/index.html">API reference</a>
+            <a href="/ai/reference/">API reference</a>
             <a href={REPO}>Source code</a>
             <a href={`${REPO}/tree/main/sample`}>Sample app</a>
           </nav>

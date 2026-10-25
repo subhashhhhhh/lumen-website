@@ -58,8 +58,8 @@ function Nav() {
         </Link>
         <nav className="nav__links">
           <a href="/#features">Features</a>
-          <a href="/ai">Lumen AI</a>
-          <a href="/roadmap">Roadmap</a>
+          <a href="/ai/">Lumen AI</a>
+          <a href="/roadmap/">Roadmap</a>
           <a href="/changelog">Changelog</a>
           <a href={GITHUB_URL}>GitHub</a>
           <a className="nav__cta" href="/download">
@@ -72,10 +72,10 @@ function Nav() {
             </summary>
             <div className="nav__sheet">
               <a href="/#features">Features</a>
-              <a href="/ai">Lumen AI, for developers</a>
-              <a href="/roadmap">Roadmap</a>
+              <a href="/ai/">Lumen AI, for developers</a>
+              <a href="/roadmap/">Roadmap</a>
               <a href="/changelog">Changelog</a>
-              <a href="/privacy">Privacy policy</a>
+              <a href="/privacy/">Privacy policy</a>
               <a href={GITHUB_URL}>GitHub</a>
             </div>
           </details>
@@ -96,9 +96,9 @@ function Footer() {
         <p className="footer__links">
           <a href="/download">Download</a>
           <a href="/changelog">Changelog</a>
-          <a href="/roadmap">Roadmap</a>
-          <a href="/ai">Lumen AI</a>
-          <a href="/privacy">Privacy policy</a>
+          <a href="/roadmap/">Roadmap</a>
+          <a href="/ai/">Lumen AI</a>
+          <a href="/privacy/">Privacy policy</a>
           <a href={GITHUB_URL}>Source code</a>
           <a href={`${GITHUB_URL}/issues`}>Report a bug</a>
         </p>
