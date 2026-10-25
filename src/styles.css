@@ -5,10 +5,12 @@
    reflections (amber, blue) as small accents. Left-aligned editorial layout, small caps-style labels and
    spec lines; one phrase per headline set in the warm flare colour. Flat colours only: no gradients, no glow. */
 :root {
-  --night: #0e1526;
-  --night-2: #131c33;   /* alternate band */
-  --night-3: #1b2644;   /* cards, lines */
-  --ring: #33456e;      /* the icon's ring colour: borders, phone outline */
+  /* A few shades lighter than the icon's own night blue (#0e1526), as in the marketing stills,
+     so the icon shows as a darker tile with visible edges. */
+  --night: #1b2644;
+  --night-2: #212d50;   /* alternate band */
+  --night-3: #28365e;   /* cards, chips, hover */
+  --ring: #3a4d7a;      /* borders, phone outline */
   --warm: #fff3d9;      /* the flare */
   --ink: #f4efe6;
   --ink-2: rgba(244, 239, 230, 0.66);
@@ -28,18 +30,18 @@ html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--night); -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
 img, video { display: block; max-width: 100%; }
-::selection { background: var(--amber); color: var(--night); }
+::selection { background: var(--amber); color: #0e1526; }
 
 .wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
 em { font-style: normal; }
 
 /* Nav */
-.nav { position: sticky; top: 0; z-index: 50; background: rgba(14, 21, 38, 0.86); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(51, 69, 110, 0.5); }
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(27, 38, 68, 0.86); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(51, 69, 110, 0.5); }
 .nav__inner { max-width: 1160px; height: 60px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; }
 .nav__brand { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; }
 .nav__links { display: flex; align-items: center; gap: 30px; font-size: 15px; color: var(--ink-2); }
 .nav__links a:hover { color: var(--warm); }
-.nav__cta { color: var(--night) !important; background: var(--warm); padding: 7px 14px; border-radius: 10px; font-weight: 600; }
+.nav__cta { color: #0e1526 !important; background: var(--warm); padding: 7px 14px; border-radius: 10px; font-weight: 600; }
 @media (max-width: 640px) { .nav__links a:not(.nav__cta) { display: none; } }
 
 /* Labels: "01  Smart Search ———" */
@@ -62,7 +64,7 @@ em { font-style: normal; }
 
 /* Buttons: the icon's rounded square, not a pill */
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-.button { display: inline-flex; align-items: center; height: 50px; padding: 0 22px; border-radius: 14px; background: var(--warm); color: var(--night); font-size: 16px; font-weight: 600; transition: transform 0.25s var(--ease), background 0.2s; }
+.button { display: inline-flex; align-items: center; height: 50px; padding: 0 22px; border-radius: 14px; background: var(--warm); color: #0e1526; font-size: 16px; font-weight: 600; transition: transform 0.25s var(--ease), background 0.2s; }
 .button:hover { background: #fff; }
 .button:active { transform: scale(0.97); }
 .button--ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--ring); }
@@ -247,7 +249,7 @@ em { font-style: normal; }
 .release:first-child { padding-top: 0; }
 .release__meta p { margin: 6px 0 0; font-family: var(--sans); font-size: 13px; color: var(--ink-3); }
 .release__version { margin: 0; font-family: var(--sans); font-size: 28px; font-weight: 500; color: var(--warm); }
-.release__latest { display: inline-block; margin-top: 12px !important; padding: 3px 9px; border-radius: 7px; background: var(--amber); color: var(--night) !important; font-weight: 600; }
+.release__latest { display: inline-block; margin-top: 12px !important; padding: 3px 9px; border-radius: 7px; background: var(--amber); color: #0e1526 !important; font-weight: 600; }
 @media (max-width: 720px) { .release { grid-template-columns: 1fr; gap: 16px; } }
 .prose-lumen { font-size: 17px; line-height: 1.6; color: var(--ink-2); }
 .prose-lumen h2 { margin: 28px 0 10px; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--amber); }

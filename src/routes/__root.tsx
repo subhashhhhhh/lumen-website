@@ -14,7 +14,7 @@ export const Route = createRootRoute({
       { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
       { title: TITLE },
       { name: 'description', content: DESCRIPTION },
-      { name: 'theme-color', content: '#0e1526' },
+      { name: 'theme-color', content: '#1b2644' },
       { property: 'og:title', content: TITLE },
       { property: 'og:description', content: DESCRIPTION },
       { property: 'og:image', content: 'https://lumen-photos.app/og.jpg' },

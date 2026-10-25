@@ -53,9 +53,7 @@ function Hero() {
     <section className="hero">
       <div className="wrap hero__grid">
         <div className="hero__copy">
-          <p className="label reveal">
-            <span className="label__n">v0.1</span>A gallery for Android
-          </p>
+          <p className="label reveal">A gallery for Android</p>
           <h1 className="hero__title reveal">
             Your photos, <em>smarter.</em> And they never leave your phone.
           </h1>
