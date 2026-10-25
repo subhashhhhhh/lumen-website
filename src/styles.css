@@ -38,6 +38,7 @@ em { font-style: normal; }
 /* Nav */
 .nav { position: sticky; top: 0; z-index: 50; background: rgba(27, 38, 68, 0.86); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(51, 69, 110, 0.5); }
 .nav__inner { max-width: 1160px; height: 60px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; }
+.nav__brand img { border-radius: 8px; box-shadow: 0 0 0 1px var(--ring); }
 .nav__brand { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; }
 .nav__links { display: flex; align-items: center; gap: 30px; font-size: 15px; color: var(--ink-2); }
 .nav__links a:hover { color: var(--warm); }

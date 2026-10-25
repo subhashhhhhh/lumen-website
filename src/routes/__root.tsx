@@ -1,6 +1,5 @@
 import { HeadContent, Link, Scripts, createRootRoute } from '@tanstack/react-router'
 import appCss from '../styles.css?url'
-import { FlareMark } from '../components/flare'
 import { GITHUB_URL } from '../site'
 
 const TITLE = 'Lumen: the smart gallery for Android'
@@ -54,7 +53,7 @@ function Nav() {
     <header className="nav">
       <div className="nav__inner">
         <Link to="/" className="nav__brand">
-          <FlareMark size={26} />
+          <img src="/brand/icon-96.png" alt="" width={30} height={30} />
           Lumen
         </Link>
         <nav className="nav__links">
