@@ -45,6 +45,10 @@ const GROUPS: { name: string; note: string; items: Item[] }[] = [
     note: 'Decided, not started.',
     items: [
       {
+        title: 'Your language',
+        text: 'Lumen in other languages, with a language setting of its own. First drafts for the most asked-for languages, then fixes from native speakers on Weblate.',
+      },
+      {
         title: 'Spoken in Videos',
         text: 'Search what people say in your videos. A more accurate speech model also makes better subtitles.',
       },
