@@ -20,9 +20,37 @@ async function serveMedia(request: Request): Promise<Response> {
   const asset = await env.ASSETS.fetch(new Request(request.url, { method: request.method, headers }))
   if (!asset.ok) return asset
 
+  // The edge cache answers Range requests itself, so after the first visit Safari's slices come
+  // straight from it instead of reading the whole file per slice. Keyed by ETag, so a new deploy
+  // of a clip never serves the old one.
+  if (request.method === 'GET' && asset.headers.get('ETag')) {
+    const key = new Request(`${request.url.split('?')[0]}?v=${encodeURIComponent(asset.headers.get('ETag')!)}`)
+    // DOM's CacheStorage type (the page code shares this tsconfig) hides Workers' default cache.
+    const cache = (caches as unknown as { default: Cache }).default
+    const cached = await cache.match(new Request(key, { headers: request.headers }))
+    if (cached) {
+      await asset.body?.cancel()
+      return cached
+    }
+    const toCache = new Response(asset.body, asset)
+    toCache.headers.set('Cache-Control', 'public, max-age=86400')
+    toCache.headers.set('Accept-Ranges', 'bytes')
+    await cache.put(key, toCache.clone())
+    const fresh = await cache.match(new Request(key, { headers: request.headers }))
+    if (fresh) {
+      await toCache.body?.cancel()
+      return fresh
+    }
+    return slice(toCache, range)
+  }
+  return slice(asset, range)
+}
+
+/** Cuts the requested range out of the full file, for when the edge cache isn't there (local preview). */
+async function slice(asset: Response, range: string | null): Promise<Response> {
   const out = new Headers(asset.headers)
   out.set('Accept-Ranges', 'bytes')
-  const match = range && request.method === 'GET' ? /^bytes=(\d*)-(\d*)$/.exec(range.trim()) : null
+  const match = range && asset.body ? /^bytes=(\d*)-(\d*)$/.exec(range.trim()) : null
   if (!match || (!match[1] && !match[2])) return new Response(asset.body, { status: asset.status, headers: out })
 
   const body = await asset.arrayBuffer()
