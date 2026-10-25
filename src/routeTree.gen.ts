@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AiRouteImport } from './routes/ai'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as DownloadRouteImport } from './routes/download'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -18,6 +19,11 @@ import { Route as RoadmapRouteImport } from './routes/roadmap'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChangelogRoute = ChangelogRouteImport.update({
@@ -43,6 +49,7 @@ const RoadmapRoute = RoadmapRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai': typeof AiRoute
   '/changelog': typeof ChangelogRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai': typeof AiRoute
   '/changelog': typeof ChangelogRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai': typeof AiRoute
   '/changelog': typeof ChangelogRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
@@ -65,14 +74,22 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/changelog' | '/download' | '/privacy' | '/roadmap'
+  fullPaths: '/' | '/ai' | '/changelog' | '/download' | '/privacy' | '/roadmap'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/changelog' | '/download' | '/privacy' | '/roadmap'
-  id: '__root__' | '/' | '/changelog' | '/download' | '/privacy' | '/roadmap'
+  to: '/' | '/ai' | '/changelog' | '/download' | '/privacy' | '/roadmap'
+  id:
+    | '__root__'
+    | '/'
+    | '/ai'
+    | '/changelog'
+    | '/download'
+    | '/privacy'
+    | '/roadmap'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiRoute: typeof AiRoute
   ChangelogRoute: typeof ChangelogRoute
   DownloadRoute: typeof DownloadRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -86,6 +103,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/changelog': {
@@ -121,6 +145,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiRoute: AiRoute,
   ChangelogRoute: ChangelogRoute,
   DownloadRoute: DownloadRoute,
   PrivacyRoute: PrivacyRoute,

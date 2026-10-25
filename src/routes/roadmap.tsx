@@ -23,6 +23,10 @@ const GROUPS: { name: string; note: string; items: Item[] }[] = [
         text: 'Lumen in the app stores that degoogled phones use, with reproducible builds.',
       },
       {
+        title: 'Lumen AI 1.0 on Maven Central',
+        text: 'Lumen\'s search, text, face and subtitle engines are a library other apps can use. It is on GitHub now, at an early stage.',
+      },
+      {
         title: 'More phones',
         text: 'Testing on Pixels with GrapheneOS, Samsung phones, Android 11 to 13, phones with less memory, and libraries of 50,000 photos or more.',
       },
@@ -43,10 +47,6 @@ const GROUPS: { name: string; note: string; items: Item[] }[] = [
       {
         title: 'Lumen Lab',
         text: 'A benchmark app that tests how Lumen runs on your phone, including experimental NPU support. You can share the results, and see other phones on this site.',
-      },
-      {
-        title: 'An on-device AI library',
-        text: 'The search, text and face engines as a separate library, so other open-source galleries can add them too.',
       },
       {
         title: 'Google Play',
@@ -78,6 +78,7 @@ const SHIPPED = [
   'Scheduled indexing',
   'Liquid Glass and Reduce Blur settings',
   'In-app updates',
+  'Lumen AI, the smart features as a library (early)',
 ]
 
 function Roadmap() {

@@ -305,3 +305,20 @@ em { font-style: normal; }
   .card h3 { margin-top: 24px; }
   .wall__row img { width: 130px; height: 130px; border-radius: 14px; }
 }
+
+/* Lumen AI guide: contents on the left (sticky), the guide on the right */
+.guide { display: grid; grid-template-columns: 200px 1fr; gap: 56px; align-items: start; }
+.guide__toc { position: sticky; top: 92px; display: grid; gap: 2px; }
+.guide__toc a { padding: 6px 0; font-size: 15px; color: var(--ink-2); }
+.guide__toc a:hover { color: var(--warm); }
+.guide__toc-title { margin: 0 0 6px; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); }
+.guide__toc-title:not(:first-child) { margin-top: 22px; }
+.guide__body { min-width: 0; }
+.guide__body .h2 { scroll-margin-top: 80px; }
+.code--block { white-space: pre; word-break: normal; overflow-x: auto; color: var(--ink); background: var(--night-2); font-size: 13.5px; }
+@media (max-width: 860px) {
+  .guide { grid-template-columns: 1fr; gap: 32px; }
+  .guide__toc { position: static; grid-template-columns: repeat(2, 1fr); gap: 0 16px; }
+}
+.guide__toc-title { grid-column: 1 / -1; }
+.guide .specs dt { text-transform: none; letter-spacing: 0; font-family: var(--code); font-size: 13px; color: var(--ink); }

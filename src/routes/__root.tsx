@@ -58,6 +58,7 @@ function Nav() {
         </Link>
         <nav className="nav__links">
           <a href="/#features">Features</a>
+          <a href="/ai">Lumen AI</a>
           <a href="/roadmap">Roadmap</a>
           <a href="/changelog">Changelog</a>
           <a href={GITHUB_URL}>GitHub</a>
@@ -71,6 +72,7 @@ function Nav() {
             </summary>
             <div className="nav__sheet">
               <a href="/#features">Features</a>
+              <a href="/ai">Lumen AI, for developers</a>
               <a href="/roadmap">Roadmap</a>
               <a href="/changelog">Changelog</a>
               <a href="/privacy">Privacy policy</a>
@@ -95,6 +97,7 @@ function Footer() {
           <a href="/download">Download</a>
           <a href="/changelog">Changelog</a>
           <a href="/roadmap">Roadmap</a>
+          <a href="/ai">Lumen AI</a>
           <a href="/privacy">Privacy policy</a>
           <a href={GITHUB_URL}>Source code</a>
           <a href={`${GITHUB_URL}/issues`}>Report a bug</a>

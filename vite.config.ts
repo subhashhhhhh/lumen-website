@@ -10,7 +10,14 @@ export default defineConfig({
     cloudflare({ viteEnvironment: { name: 'ssr' } }),
     tailwindcss(),
     // Every page is rendered to plain HTML at build time; the Worker just serves files.
-    tanstackStart({ prerender: { enabled: true, crawlLinks: true } }),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+        // Lumen AI's API reference is Dokka's own static HTML (public/ai/reference): served as is.
+        filter: ({ path }) => !path.startsWith('/ai/reference'),
+      },
+    }),
     viteReact(),
   ],
 })

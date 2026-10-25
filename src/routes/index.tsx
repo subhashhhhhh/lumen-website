@@ -336,6 +336,13 @@ const FAQ: [string, React.ReactNode][] = [
     'How is it free?',
     'Lumen is a personal open-source project under the Apache License 2.0. There are no ads, no paid tier and nothing to sell. It costs nothing to run because there is no server.',
   ],
+  [
+    'Can I use these features in my own app?',
+    <>
+      Yes. The search, text, face and subtitle engines are a separate library, <a className="inline-link" href="/ai">Lumen AI</a>,
+      under the same license. It is at an early stage.
+    </>,
+  ],
 ]
 
 function Faq() {
