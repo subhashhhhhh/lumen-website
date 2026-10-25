@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { seo } from '../seo'
 import { PageHeader } from '../components/page'
 import { CERT_SHA256, formatDate, formatSize, getLatestRelease } from '../releases'
-import { GITHUB_URL } from '../site'
+import { GITHUB_URL, OBTAINIUM_URL } from '../site'
 
 export const Route = createFileRoute('/download')({
   loader: () => getLatestRelease(),
@@ -82,8 +82,11 @@ function Download() {
           <h2 className="h2">Updates</h2>
           <p className="body">
             Lumen checks GitHub for a new version once a day and installs it when you agree, in Settings, then About,
-            then Software Update. You can turn the check off. If you prefer, add{' '}
-            <code>{GITHUB_URL.replace('https://', '')}</code> to Obtainium instead.
+            then Software Update. You can turn the check off. If you prefer,{' '}
+            <a className="inline-link" href={OBTAINIUM_URL}>
+              add Lumen to Obtainium
+            </a>{' '}
+            instead (or add <code>{GITHUB_URL.replace('https://', '')}</code> in it by hand).
           </p>
           <p className="body">
             F-Droid, IzzyOnDroid and Google Play are on the <a className="inline-link" href="/roadmap/">roadmap</a>.
