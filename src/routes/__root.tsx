@@ -1,7 +1,7 @@
 import { HeadContent, Link, Scripts, createRootRoute } from '@tanstack/react-router'
 import appCss from '../styles.css?url'
 import { FlareMark } from '../components/flare'
-import { DOWNLOAD_URL, GITHUB_URL } from '../site'
+import { GITHUB_URL } from '../site'
 
 const TITLE = 'Lumen: the smart gallery for Android'
 const DESCRIPTION =
@@ -59,9 +59,10 @@ function Nav() {
         </Link>
         <nav className="nav__links">
           <a href="/#features">Features</a>
-          <a href="/#privacy">Privacy</a>
+          <a href="/roadmap">Roadmap</a>
+          <a href="/changelog">Changelog</a>
           <a href={GITHUB_URL}>GitHub</a>
-          <a className="nav__cta" href={DOWNLOAD_URL}>
+          <a className="nav__cta" href="/download">
             Download
           </a>
         </nav>
@@ -79,9 +80,12 @@ function Footer() {
           <a href="https://github.com/subhashhhhhh">Subhash Gottumukkala</a>.
         </p>
         <p className="footer__links">
+          <a href="/download">Download</a>
+          <a href="/changelog">Changelog</a>
+          <a href="/roadmap">Roadmap</a>
+          <a href="/privacy">Privacy policy</a>
           <a href={GITHUB_URL}>Source code</a>
           <a href={`${GITHUB_URL}/issues`}>Report a bug</a>
-          <a href={DOWNLOAD_URL}>Releases</a>
         </p>
         <p className="footer__fine">
           Google Photos is a trademark of Google LLC. iPhone is a trademark of Apple Inc. Lumen is not affiliated

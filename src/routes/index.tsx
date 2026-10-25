@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Streak } from '../components/flare'
 import { Phone } from '../components/phone'
 import { useReveal } from '../components/reveal'
-import { DOWNLOAD_URL, GITHUB_URL } from '../site'
+import { GITHUB_URL } from '../site'
 
 export const Route = createFileRoute('/')({ component: Home })
 
@@ -18,6 +18,7 @@ function Home() {
       <More />
       <Privacy />
       <Film />
+      <Faq />
       <GetIt />
     </main>
   )
@@ -63,7 +64,7 @@ function Hero() {
             Google Photos does this on Google's servers. Lumen does it on your phone.
           </p>
           <div className="actions reveal">
-            <a className="button" href={DOWNLOAD_URL}>
+            <a className="button" href="/download">
               Download the APK
             </a>
             <a className="button button--ghost" href={GITHUB_URL}>
@@ -308,6 +309,55 @@ function Film() {
   )
 }
 
+const FAQ: [string, React.ReactNode][] = [
+  [
+    'Is it on F-Droid or Google Play?',
+    <>
+      Not yet. Lumen is on GitHub today, and it updates itself. F-Droid and IzzyOnDroid come first, then Google Play.
+      See the <a className="inline-link" href="/roadmap">roadmap</a>.
+    </>,
+  ],
+  [
+    'Does it work on GrapheneOS and CalyxOS?',
+    'It should: Lumen does not need Google Play services or any Google app. It has not been tested on a Pixel yet. If the smart features cannot use the graphics chip there, they fall back to the processor, which is slower. Please report what you see.',
+  ],
+  [
+    'How much space do the smart features take?',
+    'Each one is optional. All of them together are about 340 MB with the Fast search model, or 770 MB with the Accurate one. The app download itself is about 70 MB.',
+  ],
+  [
+    'Will it drain my battery?',
+    'No. By default Lumen reads your library only while the phone charges, or in overnight hours you choose, and it stops when the phone gets warm. After the first time, it only reads new photos.',
+  ],
+  [
+    'Does it change or move my photos?',
+    'No. Lumen shows the photos and videos already on your phone, in their folders. Favorites use Android\'s own favorite flag, so other gallery apps see them too.',
+  ],
+  ['Is there an iPhone version?', 'No. Lumen is made for Android.'],
+  [
+    'How is it free?',
+    'Lumen is a personal open-source project under the Apache License 2.0. There are no ads, no paid tier and nothing to sell. It costs nothing to run because there is no server.',
+  ],
+]
+
+function Faq() {
+  return (
+    <section className="band">
+      <div className="wrap">
+        <Label n="07">Questions</Label>
+        <div className="faq">
+          {FAQ.map(([q, a]) => (
+            <details key={q} className="faq__item reveal">
+              <summary>{q}</summary>
+              <p>{a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function GetIt() {
   return (
     <section className="band get">
@@ -321,7 +371,7 @@ function GetIt() {
             Download the APK from GitHub. Lumen updates itself, and every release is signed with the same key.
           </p>
           <div className="actions reveal">
-            <a className="button" href={DOWNLOAD_URL}>
+            <a className="button" href="/download">
               Download the APK
             </a>
             <a className="button button--ghost" href={GITHUB_URL}>
