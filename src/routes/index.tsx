@@ -1,17 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Streak } from '../components/flare'
 import { Phone } from '../components/phone'
 import { useReveal } from '../components/reveal'
 import { DOWNLOAD_URL, GITHUB_URL } from '../site'
 
 export const Route = createFileRoute('/')({ component: Home })
 
-const PEOPLE = ['Mai', 'Daniel', 'Ananya', 'Sofia']
-
 function Home() {
   useReveal()
   return (
     <main>
       <Hero />
+      <Wall />
       <Search />
       <LiveText />
       <People />
@@ -23,68 +23,120 @@ function Home() {
   )
 }
 
+// A section's label row: number and name in mono, then a hairline to the edge.
+function Label({ n, children }: { n: string; children: React.ReactNode }) {
+  return (
+    <p className="label reveal">
+      <span className="label__n">{n}</span>
+      {children}
+    </p>
+  )
+}
+
+// The facts under a feature, in mono, like a spec sheet.
+function Specs({ rows }: { rows: [string, string][] }) {
+  return (
+    <dl className="specs reveal">
+      {rows.map(([k, v]) => (
+        <div key={k}>
+          <dt>{k}</dt>
+          <dd>{v}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+
 function Hero() {
   return (
     <section className="hero">
-      <p className="eyebrow reveal">Lumen for Android</p>
-      <h1 className="hero__title reveal">
-        The smart gallery
-        <br />
-        that stays on your phone.
-      </h1>
-      <p className="hero__lede reveal">
-        Find a photo by describing it. Copy the text in any picture. See everyone you know, grouped by face. All of
-        it runs on your phone, with no account and no cloud.
-      </p>
-      <div className="actions reveal">
-        <a className="button" href={DOWNLOAD_URL}>
-          Download
-        </a>
-        <a className="more-link" href={GITHUB_URL}>
-          View the source code
-        </a>
+      <div className="wrap hero__grid">
+        <div className="hero__copy">
+          <p className="label reveal">
+            <span className="label__n">v0.1</span>A gallery for Android
+          </p>
+          <h1 className="hero__title reveal">
+            Your photos, <em>smarter.</em> And they never leave your phone.
+          </h1>
+          <p className="lede reveal">
+            Lumen finds a photo when you describe it, reads the text in your pictures, and groups the people in them.
+            Google Photos does this on Google's servers. Lumen does it on your phone.
+          </p>
+          <div className="actions reveal">
+            <a className="button" href={DOWNLOAD_URL}>
+              Download the APK
+            </a>
+            <a className="button button--ghost" href={GITHUB_URL}>
+              Source code
+            </a>
+          </div>
+          <p className="hero__meta reveal">Android 11+ · Apache 2.0 · No Google Play services</p>
+        </div>
+        <div className="hero__phone">
+          <Phone video="/media/library.mp4" poster="/media/library.jpg" label="Lumen's photo library, scrolling" />
+        </div>
       </div>
-      <p className="hero__meta reveal">Android 11 and later · Free · Open source</p>
-      <div className="hero__phone">
-        <Phone video="/media/library.mp4" poster="/media/library.jpg" label="Lumen's photo library, scrolling" />
-      </div>
+      <Streak className="hero__streak" />
+    </section>
+  )
+}
+
+// Two rows of real photos drifting in opposite directions: the library the rest of the page searches.
+function Wall() {
+  const photos = Array.from({ length: 19 }, (_, i) => `/wall/${i}.jpg`)
+  const rows = [photos.slice(0, 10), photos.slice(9)]
+  return (
+    <section className="wall" aria-hidden="true">
+      {rows.map((row, r) => (
+        <div key={r} className={`wall__row ${r ? 'wall__row--back' : ''}`}>
+          {[...row, ...row].map((src, i) => (
+            <img key={i} src={src} alt="" loading="lazy" width={180} height={180} />
+          ))}
+        </div>
+      ))}
     </section>
   )
 }
 
 function Search() {
   return (
-    <section id="search" className="band band--dark">
-      <div className="center">
-        <p className="eyebrow reveal">Smart Search</p>
-        <h2 className="title reveal">Find any photo by describing it.</h2>
-        <p className="query reveal" aria-hidden="true">
-          <span className="query__text">cat sleeping on a chair</span>
-        </p>
-      </div>
-      <div className="split split--phone-right">
-        <div className="split__copy">
-          <p className="body reveal">
-            Type what you remember. Lumen looks at what is in each photo, not at its file name, so a few words find the
-            picture you mean. The search model runs on your phone's graphics chip, and your photos stay where they are.
-          </p>
-          <ul className="tips reveal">
-            <li>
-              <code>"so baby come light me up"</code>
-              <span>Quotes find the exact words in photos and videos.</span>
-            </li>
-            <li>
-              <code>mai and daniel</code>
-              <span>Two names find the photos with both people.</span>
-            </li>
-            <li>
-              <code>djokovic</code>
-              <span>Famous faces work with no setup.</span>
-            </li>
-          </ul>
-        </div>
-        <div className="split__phone">
-          <Phone video="/media/search.mp4" poster="/media/search.jpg" label="Searching for 'cat sleeping on a chair'" />
+    <section id="features" className="band">
+      <div className="wrap">
+        <Label n="01">Smart Search</Label>
+        <div className="split">
+          <div className="split__copy">
+            <h2 className="title reveal">
+              Find any photo by <em>describing</em> it.
+            </h2>
+            <p className="query reveal" aria-hidden="true">
+              <span className="query__text">cat sleeping on a chair</span>
+            </p>
+            <p className="body reveal">
+              Type what you remember. Lumen looks at what is in each photo, not at its name, so a few words find the
+              picture you mean.
+            </p>
+            <ul className="tips reveal">
+              <li>
+                <code>"so baby come light me up"</code> exact words, in photos and videos
+              </li>
+              <li>
+                <code>mai and daniel</code> photos with both of them
+              </li>
+              <li>
+                <code>djokovic</code> famous faces, no setup
+              </li>
+            </ul>
+            <Specs
+              rows={[
+                ['Model', 'SigLIP 2, or CLIP on smaller phones'],
+                ['Runs on', "Your phone's GPU"],
+                ['Sends', 'Nothing'],
+              ]}
+            />
+          </div>
+          <div className="split__phone">
+            <Phone video="/media/search.mp4" poster="/media/search.jpg" label="Searching for 'cat sleeping on a chair'" />
+          </div>
         </div>
       </div>
     </section>
@@ -93,50 +145,74 @@ function Search() {
 
 function LiveText() {
   return (
-    <section className="band band--gray">
-      <div className="split split--phone-left">
-        <div className="split__phone">
-          <Phone video="/media/livetext.mp4" poster="/media/livetext.jpg" label="Selecting text on a restaurant menu" />
-        </div>
-        <div className="split__copy">
-          <p className="eyebrow reveal">Live Text</p>
-          <h2 className="title title--left reveal">Select the words in any photo.</h2>
-          <p className="body reveal">
-            Long-press a word, drag to select more, then copy, search or share it. Links, phone numbers and email
-            addresses open with a tap. Pause a video and you can select its text too.
-          </p>
-          <p className="body body--quiet reveal">
-            Lumen reads the text in your photos while your phone charges, so Live Text is ready the moment you open
-            one. The same text makes your screenshots, receipts and signs searchable.
-          </p>
+    <section className="band band--paper">
+      <div className="wrap">
+        <Label n="02">Live Text</Label>
+        <div className="split split--flip">
+          <div className="split__phone">
+            <Phone video="/media/livetext.mp4" poster="/media/livetext.jpg" label="Selecting text on a restaurant menu" />
+          </div>
+          <div className="split__copy">
+            <h2 className="title reveal">
+              Select the words in <em>any</em> photo.
+            </h2>
+            <p className="body reveal">
+              Long-press a word, drag to select more, then copy, search or share it. Links, phone numbers and email
+              addresses open with a tap. Pause a video and its text is selectable too.
+            </p>
+            <p className="body reveal">
+              The same text makes your screenshots, receipts and signs searchable. Put words in quotes to find an exact
+              phrase.
+            </p>
+            <Specs
+              rows={[
+                ['Model', 'PP-OCRv6'],
+                ['Reads', 'While your phone charges, once'],
+                ['Sends', 'Nothing'],
+              ]}
+            />
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
+const PEOPLE = ['Mai', 'Daniel', 'Ananya', 'Sofia']
+
 function People() {
   return (
     <section className="band">
-      <div className="split split--phone-right">
-        <div className="split__copy">
-          <p className="eyebrow reveal">People</p>
-          <h2 className="title title--left reveal">Everyone you know. Found on your phone.</h2>
-          <p className="body reveal">
-            Lumen groups the faces in your photos and videos into people. Give someone a name once, and every photo of
-            them is one tap or one search away. Their faces are never uploaded anywhere.
-          </p>
-          <ul className="faces reveal">
-            {PEOPLE.map((name, i) => (
-              <li key={name} style={{ transitionDelay: `${120 + i * 70}ms` }}>
-                <img src={`/faces/${i}.jpg`} alt="" width={120} height={120} />
-                <span>{name}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="split__phone">
-          <Phone video="/media/people.mp4" poster="/media/people.jpg" label="Opening Mai's page from Collections" />
+      <div className="wrap">
+        <Label n="03">People</Label>
+        <div className="split">
+          <div className="split__copy">
+            <h2 className="title reveal">
+              Everyone you know, found <em>on your phone.</em>
+            </h2>
+            <p className="body reveal">
+              Lumen groups the faces in your photos and videos into people. Name someone once, and every photo of them
+              is one tap or one search away.
+            </p>
+            <ul className="faces reveal">
+              {PEOPLE.map((name, i) => (
+                <li key={name} style={{ transitionDelay: `${120 + i * 70}ms` }}>
+                  <img src={`/faces/${i}.jpg`} alt="" width={120} height={120} />
+                  <span>{name}</span>
+                </li>
+              ))}
+            </ul>
+            <Specs
+              rows={[
+                ['Models', 'YuNet and SFace'],
+                ['Faces stored', 'On your phone only'],
+                ['Sends', 'Nothing'],
+              ]}
+            />
+          </div>
+          <div className="split__phone">
+            <Phone video="/media/people.mp4" poster="/media/people.jpg" label="Opening Mai's page from Collections" />
+          </div>
         </div>
       </div>
     </section>
@@ -144,62 +220,76 @@ function People() {
 }
 
 const MORE = [
-  { title: 'Details, one swipe up', text: 'Camera, lens, time zone, a map of where it was taken, and the people in it.' },
+  { title: 'Details, one swipe up', text: 'Camera, lens, time zone, a map of where it was taken, and who is in it.' },
   { title: 'Film strip', text: 'Skim through everything with a strip of thumbnails under the photo.' },
   { title: 'Subtitles, made offline', text: 'Tap CC on a video to make subtitles. Copy them or save them as SRT.' },
-  { title: 'Hidden and encrypted', text: 'Hide private photos behind a lock, and encrypt them on your storage.' },
-  { title: 'Indexes while you sleep', text: 'Choose overnight hours, and Lumen does its work while you are not using your phone.' },
+  { title: 'Hidden and encrypted', text: 'Keep private photos behind a lock, encrypted on your storage.' },
+  { title: 'Indexes while you sleep', text: 'Pick overnight hours, and Lumen does its work while the phone is idle.' },
   { title: 'Liquid Glass', text: 'Glass buttons and bars that bend the photo behind them. Turn it off any time.' },
 ]
 
 function More() {
   return (
-    <section className="band band--gray">
-      <div className="center">
-        <h2 className="title reveal">And a lot more.</h2>
-      </div>
-      <div className="grid">
-        {MORE.map((card, i) => (
-          <article key={card.title} className="card reveal" style={{ transitionDelay: `${(i % 3) * 80}ms` }}>
-            <h3>{card.title}</h3>
-            <p>{card.text}</p>
-          </article>
-        ))}
+    <section className="band band--deep">
+      <div className="wrap">
+        <Label n="04">And the rest</Label>
+        <h2 className="title title--wide reveal">
+          Everything a gallery should do, <em>without the cloud.</em>
+        </h2>
+        <div className="grid">
+          {MORE.map((card, i) => (
+            <article key={card.title} className="card reveal" style={{ transitionDelay: `${(i % 3) * 80}ms` }}>
+              <span className="card__n">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )
 }
 
 const NETWORK = [
-  { what: 'Smart feature models', where: 'Hugging Face', when: 'Once, when you turn a feature on' },
-  { what: 'Map tiles', where: 'OpenFreeMap', when: 'When you open a map. You can turn maps off.' },
-  { what: 'Update check', where: 'GitHub', when: 'Once a day. You can turn it off.' },
+  { host: 'huggingface.co', what: 'Smart feature models', when: 'once, when you turn a feature on' },
+  { host: 'tiles.openfreemap.org', what: 'Map tiles', when: 'when you open a map (can be turned off)' },
+  { host: 'github.com', what: 'Update check', when: 'once a day, and the update itself if you install it (can be turned off)' },
 ]
 
 function Privacy() {
   return (
-    <section id="privacy" className="band band--dark">
-      <div className="center">
-        <p className="eyebrow reveal">Privacy</p>
-        <div className="statements">
-          <p className="reveal">No account.</p>
-          <p className="reveal">No Google.</p>
-          <p className="reveal">No cloud.</p>
-          <p className="reveal statements__last">Nothing leaves your phone.</p>
-        </div>
-        <p className="body body--center reveal">
-          Lumen does not use Google Play services, so it works on GrapheneOS, CalyxOS and phones without Google apps.
-          It has no ads, analytics or tracking. It goes online only for these three things:
+    <section id="privacy" className="band">
+      <div className="wrap">
+        <Label n="05">Privacy</Label>
+        <p className="statements reveal">
+          No account. No Google. No cloud. <em>Nothing leaves your phone.</em>
         </p>
-      </div>
-      <div className="network reveal">
-        {NETWORK.map((row) => (
-          <div key={row.what} className="network__row">
-            <span className="network__what">{row.what}</span>
-            <span className="network__where">{row.where}</span>
-            <span className="network__when">{row.when}</span>
+        <div className="split split--even">
+          <div className="split__copy">
+            <p className="body reveal">
+              Lumen does not use Google Play services, so it works on GrapheneOS, CalyxOS and phones without Google
+              apps. It has no ads, no analytics and no tracking.
+            </p>
+            <p className="body reveal">Lumen goes online for three things, each of which you can see and control. There are no others.</p>
           </div>
-        ))}
+          <div className="log reveal" role="table" aria-label="Everything Lumen goes online for">
+            <p className="log__head">
+              <span>Goes online for</span>
+              <span>3 things</span>
+            </p>
+            {NETWORK.map((row) => (
+              <div key={row.host} className="log__row" role="row">
+                <span className="log__host" role="cell">
+                  {row.host}
+                </span>
+                <span className="log__what" role="cell">
+                  {row.what}, {row.when}
+                </span>
+              </div>
+            ))}
+            <p className="log__foot">Your photos, faces and search index: never.</p>
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -207,12 +297,12 @@ function Privacy() {
 
 function Film() {
   return (
-    <section className="band">
-      <div className="center">
-        <h2 className="title reveal">See it move.</h2>
-      </div>
-      <div className="film reveal">
-        <video src="/media/launch.mp4" poster="/media/launch.jpg" controls playsInline preload="none" />
+    <section className="band band--deep">
+      <div className="wrap">
+        <Label n="06">The film</Label>
+        <div className="film reveal">
+          <video src="/media/launch.mp4" poster="/media/launch.jpg" controls playsInline preload="none" />
+        </div>
       </div>
     </section>
   )
@@ -220,20 +310,27 @@ function Film() {
 
 function GetIt() {
   return (
-    <section className="band band--gray get">
-      <img className="get__icon reveal" src="/brand/app-icon.png" alt="" width={120} height={120} />
-      <h2 className="title reveal">Get Lumen.</h2>
-      <p className="body body--center reveal">
-        Download the APK from GitHub. Lumen checks for updates itself, and every release is signed with the same key.
-      </p>
-      <div className="actions reveal">
-        <a className="button" href={DOWNLOAD_URL}>
-          Download for Android
-        </a>
-        <a className="more-link" href={GITHUB_URL}>
-          View on GitHub
-        </a>
+    <section className="band get">
+      <div className="wrap get__inner">
+        <img className="get__icon reveal" src="/brand/app-icon.png" alt="" width={112} height={112} />
+        <div>
+          <h2 className="title reveal">
+            Get Lumen. <em>It's free.</em>
+          </h2>
+          <p className="body reveal">
+            Download the APK from GitHub. Lumen updates itself, and every release is signed with the same key.
+          </p>
+          <div className="actions reveal">
+            <a className="button" href={DOWNLOAD_URL}>
+              Download the APK
+            </a>
+            <a className="button button--ghost" href={GITHUB_URL}>
+              View on GitHub
+            </a>
+          </div>
+        </div>
       </div>
+      <Streak className="get__streak" />
     </section>
   )
 }

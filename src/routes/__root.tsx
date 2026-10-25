@@ -1,5 +1,6 @@
 import { HeadContent, Link, Scripts, createRootRoute } from '@tanstack/react-router'
 import appCss from '../styles.css?url'
+import { FlareMark } from '../components/flare'
 import { DOWNLOAD_URL, GITHUB_URL } from '../site'
 
 const TITLE = 'Lumen: the smart gallery for Android'
@@ -13,7 +14,7 @@ export const Route = createRootRoute({
       { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
       { title: TITLE },
       { name: 'description', content: DESCRIPTION },
-      { name: 'theme-color', content: '#ffffff' },
+      { name: 'theme-color', content: '#0e1526' },
       { property: 'og:title', content: TITLE },
       { property: 'og:description', content: DESCRIPTION },
       { property: 'og:image', content: 'https://lumen-photos.app/og.jpg' },
@@ -53,11 +54,11 @@ function Nav() {
     <header className="nav">
       <div className="nav__inner">
         <Link to="/" className="nav__brand">
-          <img src="/brand/app-icon.png" alt="" width={22} height={22} />
+          <FlareMark size={26} />
           Lumen
         </Link>
         <nav className="nav__links">
-          <a href="/#search">Features</a>
+          <a href="/#features">Features</a>
           <a href="/#privacy">Privacy</a>
           <a href={GITHUB_URL}>GitHub</a>
           <a className="nav__cta" href={DOWNLOAD_URL}>
