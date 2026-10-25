@@ -51,7 +51,7 @@ function Download() {
               <h2 className="h2">{main.abi}</h2>
               <p className="body">{ABI_INFO[main.abi]}</p>
             </div>
-            <a className="button" href={main.url}>
+            <a className="button" href={main.url} data-umami-event="download-apk" data-umami-event-abi={main.abi} data-umami-event-version={release.version}>
               Download · {formatSize(main.size)}
             </a>
           </div>
@@ -62,7 +62,7 @@ function Download() {
                   <p className="dl-row__abi">{apk.abi}</p>
                   <p className="dl-row__info">{ABI_INFO[apk.abi]}</p>
                 </div>
-                <a className="button button--ghost" href={apk.url}>
+                <a className="button button--ghost" href={apk.url} data-umami-event="download-apk" data-umami-event-abi={apk.abi} data-umami-event-version={release.version}>
                   {formatSize(apk.size)}
                 </a>
               </div>
@@ -83,7 +83,7 @@ function Download() {
           <p className="body">
             Lumen checks GitHub for a new version once a day and installs it when you agree, in Settings, then About,
             then Software Update. You can turn the check off. If you prefer,{' '}
-            <a className="inline-link" href={OBTAINIUM_URL}>
+            <a className="inline-link" href={OBTAINIUM_URL} data-umami-event="obtainium" data-umami-event-place="download">
               add Lumen to Obtainium
             </a>{' '}
             instead (or add <code>{GITHUB_URL.replace('https://', '')}</code> in it by hand).
@@ -130,7 +130,7 @@ function Unavailable() {
         lede={
           <>
             The release list didn't load just now. Every release, with its checksums, is on{' '}
-            <a className="inline-link" href={`${GITHUB_URL}/releases/latest`}>
+            <a className="inline-link" href={`${GITHUB_URL}/releases/latest`} data-umami-event="download-github-fallback">
               GitHub
             </a>
             .

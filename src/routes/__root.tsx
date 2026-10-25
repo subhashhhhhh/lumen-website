@@ -61,10 +61,10 @@ function Nav() {
           <a href="/ai/">Lumen AI</a>
           <a href="/roadmap/">Roadmap</a>
           <a href="/changelog">Changelog</a>
-          <a className="nav__icon" href={GITHUB_URL} aria-label="Lumen on GitHub" title="GitHub">
+          <a className="nav__icon" href={GITHUB_URL} data-umami-event="github" data-umami-event-place="nav" aria-label="Lumen on GitHub" title="GitHub">
             <GitHubMark />
           </a>
-          <a className="nav__cta" href="/download">
+          <a className="nav__cta" href="/download" data-umami-event="download-cta" data-umami-event-place="nav">
             Download
           </a>
           <details className="nav__menu">
@@ -78,7 +78,7 @@ function Nav() {
               <a href="/roadmap/">Roadmap</a>
               <a href="/changelog">Changelog</a>
               <a href="/privacy/">Privacy policy</a>
-              <a href={GITHUB_URL}>GitHub</a>
+              <a href={GITHUB_URL} data-umami-event="github" data-umami-event-place="menu">GitHub</a>
             </div>
           </details>
         </nav>
@@ -101,8 +101,8 @@ function Footer() {
           <a href="/roadmap/">Roadmap</a>
           <a href="/ai/">Lumen AI</a>
           <a href="/privacy/">Privacy policy</a>
-          <a href={GITHUB_URL}>Source code</a>
-          <a href={`${GITHUB_URL}/issues`}>Report a bug</a>
+          <a href={GITHUB_URL} data-umami-event="github" data-umami-event-place="footer">Source code</a>
+          <a href={`${GITHUB_URL}/issues`} data-umami-event="report-bug">Report a bug</a>
         </p>
         <p className="footer__fine">
           Google Photos is a trademark of Google LLC. iPhone is a trademark of Apple Inc. Lumen is not affiliated

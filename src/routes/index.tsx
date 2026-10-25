@@ -74,11 +74,11 @@ function Hero() {
             Google Photos does this on Google's servers. Lumen does it on your phone.
           </p>
           <div className="actions reveal">
-            <a className="button" href="/download">
+            <a className="button" href="/download" data-umami-event="download-cta" data-umami-event-place="hero">
               Download the APK
             </a>
-            <ObtainiumBadge />
-            <a className="button button--ghost" href={GITHUB_URL}>
+            <ObtainiumBadge place="hero" />
+            <a className="button button--ghost" href={GITHUB_URL} data-umami-event="github" data-umami-event-place="hero">
               Source code
             </a>
           </div>
@@ -389,11 +389,11 @@ function GetIt() {
             Download the APK from GitHub. Lumen updates itself, and every release is signed with the same key.
           </p>
           <div className="actions reveal">
-            <a className="button" href="/download">
+            <a className="button" href="/download" data-umami-event="download-cta" data-umami-event-place="footer-cta">
               Download the APK
             </a>
-            <ObtainiumBadge />
-            <a className="button button--ghost" href={GITHUB_URL}>
+            <ObtainiumBadge place="footer-cta" />
+            <a className="button button--ghost" href={GITHUB_URL} data-umami-event="github" data-umami-event-place="footer-cta">
               View on GitHub
             </a>
           </div>

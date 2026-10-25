@@ -106,8 +106,10 @@ function Privacy() {
 
           <h2 className="h2">This website</h2>
           <p className="body">
-            lumen-photos.app sets no cookies and loads nothing from other websites: the fonts, images and videos all
-            come from this site. It is hosted on Cloudflare, which processes each request to deliver the page and to
+            lumen-photos.app sets no cookies. The fonts, images and videos all come from this site. It counts visits
+            with Umami, a privacy-friendly analytics tool hosted by the developer at analytics.fastlytics.app: it
+            records which pages are viewed and which download links are tapped, without cookies and without
+            identifying you. It is hosted on Cloudflare, which processes each request to deliver the page and to
             protect the site from attacks. The download links go to GitHub.
           </p>
 
