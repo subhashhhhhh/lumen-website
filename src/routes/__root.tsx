@@ -64,6 +64,19 @@ function Nav() {
           <a className="nav__cta" href="/download">
             Download
           </a>
+          <details className="nav__menu">
+            <summary aria-label="Menu">
+              <span />
+              <span />
+            </summary>
+            <div className="nav__sheet">
+              <a href="/#features">Features</a>
+              <a href="/roadmap">Roadmap</a>
+              <a href="/changelog">Changelog</a>
+              <a href="/privacy">Privacy policy</a>
+              <a href={GITHUB_URL}>GitHub</a>
+            </div>
+          </details>
         </nav>
       </div>
     </header>

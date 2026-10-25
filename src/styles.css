@@ -43,7 +43,20 @@ em { font-style: normal; }
 .nav__links { display: flex; align-items: center; gap: 30px; font-size: 15px; color: var(--ink-2); }
 .nav__links a:hover { color: var(--warm); }
 .nav__cta { color: #0e1526 !important; background: var(--warm); padding: 7px 14px; border-radius: 10px; font-weight: 600; }
-@media (max-width: 640px) { .nav__links a:not(.nav__cta) { display: none; } }
+.nav__menu { display: none; position: relative; }
+.nav__menu summary { list-style: none; display: grid; align-content: center; gap: 6px; width: 40px; height: 36px; padding: 0 10px; cursor: pointer; }
+.nav__menu summary::-webkit-details-marker { display: none; }
+.nav__menu summary span { display: block; height: 1.5px; background: var(--ink); border-radius: 1px; transition: transform 0.3s var(--ease); }
+.nav__menu[open] summary span:first-child { transform: translateY(3.75px) rotate(45deg); }
+.nav__menu[open] summary span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+.nav__sheet { position: absolute; right: 0; top: calc(100% + 12px); min-width: 210px; padding: 8px; display: grid; background: var(--night-2); border: 1px solid var(--ring); border-radius: 16px; }
+.nav__sheet a { padding: 12px 14px; border-radius: 10px; font-size: 16px; color: var(--ink); }
+.nav__sheet a:hover { background: var(--night-3); }
+@media (max-width: 720px) {
+  .nav__links { gap: 10px; }
+  .nav__links > a:not(.nav__cta) { display: none; }
+  .nav__menu { display: block; }
+}
 
 /* Labels: "01  Smart Search ———" */
 .label { display: flex; align-items: center; gap: 14px; margin: 0 0 40px; font-family: var(--sans); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-2); }
@@ -187,7 +200,7 @@ em { font-style: normal; }
 .footer__inner p { margin: 0 0 12px; }
 .footer__inner a { color: var(--ink-2); }
 .footer__inner a:hover { color: var(--warm); }
-.footer__links { display: flex; gap: 24px; font-family: var(--sans); font-size: 12px; }
+.footer__links { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 13px; }
 .footer__fine { font-size: 12px; }
 
 /* Reveal on scroll (hidden only once the early script has added .js) */
@@ -281,3 +294,14 @@ em { font-style: normal; }
 .faq__item summary::after { content: "+"; font-family: var(--sans); font-weight: 400; color: var(--amber); transition: transform 0.3s var(--ease); }
 .faq__item[open] summary::after { transform: rotate(45deg); }
 .faq__item p { margin: 0; padding: 0 0 26px; max-width: 46em; font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+
+/* Phone-width tweaks */
+.dl-row .button { white-space: nowrap; flex: none; }
+@media (max-width: 540px) {
+  .dl-main { padding: 24px; }
+  .dl-row { padding: 18px 4px; }
+  .faces { gap: 14px; }
+  .faces img { width: 62px; height: 62px; }
+  .card h3 { margin-top: 24px; }
+  .wall__row img { width: 130px; height: 130px; border-radius: 14px; }
+}
