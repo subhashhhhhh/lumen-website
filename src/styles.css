@@ -1,11 +1,10 @@
 @import "tailwindcss";
 @import "@fontsource-variable/instrument-sans";
-@import "@fontsource/instrument-serif/400-italic.css";
 @import "@fontsource-variable/jetbrains-mono";
 
 /* Lumen's own look, taken from the icon: night blue, the flare's warm white, and its two lens
    reflections (amber, blue) as small accents. Left-aligned editorial layout, mono labels and
-   spec lines, one serif italic phrase per headline. Flat colours only: no gradients, no glow. */
+   spec lines; one phrase per headline set in the warm flare colour. Flat colours only: no gradients, no glow. */
 :root {
   --night: #0e1526;
   --night-2: #131c33;   /* alternate band */
@@ -20,7 +19,6 @@
   --paper: #f3eee4;
   --paper-ink: #0e1526;
   --sans: "Instrument Sans Variable", system-ui, sans-serif;
-  --serif: "Instrument Serif", Georgia, serif;
   --mono: "JetBrains Mono Variable", ui-monospace, monospace;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: dark;
@@ -34,7 +32,7 @@ img, video { display: block; max-width: 100%; }
 ::selection { background: var(--amber); color: var(--night); }
 
 .wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
-em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+em { font-style: normal; }
 
 /* Nav */
 .nav { position: sticky; top: 0; z-index: 50; background: rgba(14, 21, 38, 0.86); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(51, 69, 110, 0.5); }
@@ -55,7 +53,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 
 /* Type */
 .title { margin: 0; max-width: 15ch; font-size: clamp(40px, 5.4vw, 72px); line-height: 1.02; font-weight: 600; letter-spacing: -0.035em; text-wrap: balance; }
-.title em { font-size: 1.08em; color: var(--warm); }
+.title em { color: var(--warm); }
 .title--wide { max-width: 20ch; }
 .band--paper .title em { color: var(--paper-ink); }
 .lede, .body { max-width: 32em; color: var(--ink-2); text-wrap: pretty; }
@@ -76,7 +74,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 .hero__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: end; }
 .hero__copy { padding-bottom: clamp(40px, 7vw, 120px); }
 .hero__title { margin: 0; font-size: clamp(46px, 6.6vw, 92px); line-height: 0.98; font-weight: 600; letter-spacing: -0.045em; text-wrap: balance; }
-.hero__title em { color: var(--warm); font-size: 1.1em; }
+.hero__title em { color: var(--warm); }
 .hero__meta { margin: 22px 0 0; font-family: var(--mono); font-size: 12px; letter-spacing: 0.02em; color: var(--ink-3); }
 .hero__phone { display: flex; justify-content: center; font-size: clamp(8px, 1vw, 12px); margin-bottom: -16em; }
 .hero__streak { position: relative; z-index: 1; display: block; width: 100%; height: 22px; margin-top: 0; }
@@ -162,7 +160,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 
 /* Privacy */
 .statements { margin: 0; max-width: 18ch; font-size: clamp(44px, 6.4vw, 88px); line-height: 1.02; font-weight: 600; letter-spacing: -0.045em; }
-.statements em { display: block; margin-top: 0.15em; color: var(--warm); font-size: 1.05em; }
+.statements em { display: block; margin-top: 0.15em; color: var(--warm); }
 .log { border: 1px solid var(--ring); border-radius: 18px; overflow: hidden; font-family: var(--mono); font-size: 13px; }
 .log__head, .log__foot { display: flex; justify-content: space-between; margin: 0; padding: 14px 20px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.04em; font-size: 12px; }
 .log__head { border-bottom: 1px solid var(--ring); }
