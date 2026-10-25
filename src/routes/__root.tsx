@@ -2,22 +2,15 @@ import { HeadContent, Link, Scripts, createRootRoute } from '@tanstack/react-rou
 import appCss from '../styles.css?url'
 import { GITHUB_URL } from '../site'
 
-const TITLE = 'Lumen: the smart gallery for Android'
-const DESCRIPTION =
-  'Search your photos by describing them, select text in any photo, and find people. Everything runs on your phone. No account, no Google, no cloud.'
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
-      { title: TITLE },
-      { name: 'description', content: DESCRIPTION },
       { name: 'theme-color', content: '#1b2644' },
-      { property: 'og:title', content: TITLE },
-      { property: 'og:description', content: DESCRIPTION },
-      { property: 'og:image', content: 'https://lumen-photos.app/og.jpg' },
-      { property: 'og:url', content: 'https://lumen-photos.app' },
+      // Each page sets its own title and preview card (src/seo.ts).
+      { property: 'og:site_name', content: 'Lumen' },
       { property: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],

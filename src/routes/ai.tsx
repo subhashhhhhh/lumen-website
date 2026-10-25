@@ -1,8 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { seo } from '../seo'
 import { PageHeader } from '../components/page'
 
 export const Route = createFileRoute('/ai')({
-  head: () => ({ meta: [{ title: 'Lumen AI · Smart photo features for Android apps' }] }),
+  head: () =>
+    seo({
+      title: 'Lumen AI · Smart photo features for Android apps',
+      description: 'An Android library for on-device search by description, text in photos and videos, people and subtitles. On Maven Central, Apache 2.0.',
+      path: '/ai/',
+      card: 'ai',
+      alt: 'Lumen AI: smart photo features for your Android app, with a code example',
+    }),
   component: LumenAiGuide,
 })
 

@@ -1,10 +1,21 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { seo } from '../seo'
 import { Streak } from '../components/flare'
 import { Phone } from '../components/phone'
 import { useReveal } from '../components/reveal'
 import { GITHUB_URL } from '../site'
 
-export const Route = createFileRoute('/')({ component: Home })
+export const Route = createFileRoute('/')({
+  head: () =>
+    seo({
+      title: 'Lumen: the private smart gallery for Android',
+      description: 'Find photos by describing them, copy the text in any picture, and see everyone you know. It all runs on your phone: no account, no Google, no cloud. Free and open source.',
+      path: '/',
+      card: 'home',
+      alt: 'Lumen on two phones: a search for "cat sleeping on a chair" and the photo library',
+    }),
+  component: Home,
+})
 
 function Home() {
   useReveal()

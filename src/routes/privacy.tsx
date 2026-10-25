@@ -1,9 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { seo } from '../seo'
 import { PageHeader } from '../components/page'
 import { GITHUB_URL } from '../site'
 
 export const Route = createFileRoute('/privacy')({
-  head: () => ({ meta: [{ title: 'Privacy policy · Lumen' }] }),
+  head: () =>
+    seo({
+      title: 'Privacy policy · Lumen',
+      description: 'Lumen collects nothing. No account, no analytics, no tracking, and only three optional connections.',
+      path: '/privacy/',
+      card: 'privacy',
+      alt: 'Lumen collects nothing',
+    }),
   component: Privacy,
 })
 

@@ -1,9 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { seo } from '../seo'
 import { PageHeader } from '../components/page'
 import { GITHUB_URL } from '../site'
 
 export const Route = createFileRoute('/roadmap')({
-  head: () => ({ meta: [{ title: 'Roadmap · Lumen' }] }),
+  head: () =>
+    seo({
+      title: 'Roadmap · Lumen',
+      description: 'What comes next for Lumen: the Offline edition, F-Droid, Spoken in Videos, Sounds and more.',
+      path: '/roadmap/',
+      card: 'roadmap',
+      alt: 'Where Lumen is going',
+    }),
   component: Roadmap,
 })
 

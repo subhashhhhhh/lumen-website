@@ -1,11 +1,19 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { seo } from '../seo'
 import { PageHeader } from '../components/page'
 import { formatDate, getReleases } from '../releases'
 import { GITHUB_URL } from '../site'
 
 export const Route = createFileRoute('/changelog')({
   loader: () => getReleases(),
-  head: () => ({ meta: [{ title: 'Changelog · Lumen' }] }),
+  head: () =>
+    seo({
+      title: 'Changelog · Lumen',
+      description: 'What changed in every Lumen release, newest first.',
+      path: '/changelog',
+      card: 'changelog',
+      alt: 'What\'s new in Lumen',
+    }),
   component: Changelog,
 })
 

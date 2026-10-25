@@ -1,11 +1,19 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { seo } from '../seo'
 import { PageHeader } from '../components/page'
 import { CERT_SHA256, formatDate, formatSize, getLatestRelease } from '../releases'
 import { GITHUB_URL } from '../site'
 
 export const Route = createFileRoute('/download')({
   loader: () => getLatestRelease(),
-  head: () => ({ meta: [{ title: 'Download Lumen' }] }),
+  head: () =>
+    seo({
+      title: 'Download Lumen',
+      description: 'Get the latest Lumen for Android 11 and later: signed APKs with checksums, install steps and in-app updates. Free and open source.',
+      path: '/download',
+      card: 'download',
+      alt: 'Download Lumen. It\'s free. With the Library and a person\'s page on two phones',
+    }),
   component: Download,
 })
 
