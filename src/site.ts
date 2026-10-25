@@ -2,7 +2,16 @@ export const GITHUB_URL = 'https://github.com/subhashhhhhh/Lumen'
 export const DOWNLOAD_URL = `${GITHUB_URL}/releases/latest`
 
 /**
- * Opens Obtainium's Add App screen with Lumen's releases filled in. Straight to the app (no
- * redirect through a third-party page); does nothing where Obtainium isn't installed.
+ * Adds Lumen to Obtainium with its settings filled in: the APK matching the phone's processor
+ * (arm64, armv7 or x86_64; the universal one stays a second choice). Obtainium's app-config link
+ * (wiki.obtainium.imranr.dev/deep_links), straight to the app with no redirect through a
+ * third-party page; it does nothing where Obtainium isn't installed.
  */
-export const OBTAINIUM_URL = `obtainium://add/${GITHUB_URL}`
+const obtainiumConfig = {
+  id: 'com.subhashh.lumen',
+  url: GITHUB_URL,
+  author: 'subhashhhhhh',
+  name: 'Lumen',
+  additionalSettings: JSON.stringify({ autoApkFilterByArch: true }),
+}
+export const OBTAINIUM_URL = `obtainium://app/${encodeURIComponent(JSON.stringify(obtainiumConfig))}`

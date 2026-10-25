@@ -3,7 +3,8 @@ import { seo } from '../seo'
 import { Streak } from '../components/flare'
 import { Phone } from '../components/phone'
 import { useReveal } from '../components/reveal'
-import { GITHUB_URL, OBTAINIUM_URL } from '../site'
+import { ObtainiumBadge } from '../components/obtainium'
+import { GITHUB_URL } from '../site'
 
 export const Route = createFileRoute('/')({
   head: () =>
@@ -76,9 +77,7 @@ function Hero() {
             <a className="button" href="/download">
               Download the APK
             </a>
-            <a className="button button--ghost" href={OBTAINIUM_URL} title="Opens Obtainium with Lumen's releases filled in">
-              Add to Obtainium
-            </a>
+            <ObtainiumBadge />
             <a className="button button--ghost" href={GITHUB_URL}>
               Source code
             </a>
@@ -393,9 +392,7 @@ function GetIt() {
             <a className="button" href="/download">
               Download the APK
             </a>
-            <a className="button button--ghost" href={OBTAINIUM_URL} title="Opens Obtainium with Lumen's releases filled in">
-              Add to Obtainium
-            </a>
+            <ObtainiumBadge />
             <a className="button button--ghost" href={GITHUB_URL}>
               View on GitHub
             </a>

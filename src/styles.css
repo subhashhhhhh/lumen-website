@@ -323,3 +323,9 @@ em { font-style: normal; }
 }
 .guide__toc-title { grid-column: 1 / -1; }
 .guide .specs dt { text-transform: none; letter-spacing: 0; font-family: var(--code); font-size: 13px; color: var(--ink); }
+
+/* Store-style badges (Obtainium's own artwork), sized to sit beside the buttons */
+.badge { display: inline-flex; align-items: center; height: 50px; transition: transform 0.25s var(--ease), opacity 0.2s; }
+.badge img { display: block; width: 161px; height: 48px; }
+.badge:hover { opacity: 0.9; }
+.badge:active { transform: scale(0.97); }
