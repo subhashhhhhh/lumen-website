@@ -17,6 +17,8 @@ function Clip({ src, poster }: { src: string; poster?: string }) {
   useEffect(() => {
     const video = ref.current
     if (!video) return
+    // The recordings are real-time hand-driven clips; 1.5× keeps them lively without looking fake.
+    video.defaultPlaybackRate = video.playbackRate = 1.5
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const io = new IntersectionObserver(
       ([entry]) => (entry.isIntersecting ? video.play().catch(() => {}) : video.pause()),
