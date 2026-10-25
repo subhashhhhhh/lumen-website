@@ -61,27 +61,10 @@ function LumenAiGuide() {
 
           <div className="doc guide__body">
             <h2 className="h2" id="setup">Set up</h2>
-            <p className="body">
-              Lumen AI is not on Maven Central yet. Build it from source with your app: add the repository as a Git
-              submodule, and include its build.
-            </p>
-            <Code>{`
-git submodule add https://github.com/subhashhhhhh/lumen-ai.git lumen-ai
-`}</Code>
-            <p className="body">
-              In <code>settings.gradle.kts</code>:
-            </p>
-            <Code>{`
-includeBuild("lumen-ai") {
-    dependencySubstitution {
-        substitute(module("com.subhashh.lumen:lumen-ai")).using(project(":ai"))
-    }
-}
-`}</Code>
-            <p className="body">In the build file of your app:</p>
+            <p className="body">Lumen AI is on Maven Central. Add it to the build file of your app:</p>
             <Code>{`
 dependencies {
-    implementation("com.subhashh.lumen:lumen-ai")
+    implementation("app.lumen-photos:lumen-ai:0.1.0")
 }
 `}</Code>
             <p className="body">

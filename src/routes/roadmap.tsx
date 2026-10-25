@@ -23,8 +23,8 @@ const GROUPS: { name: string; note: string; items: Item[] }[] = [
         text: 'Lumen in the app stores that degoogled phones use, with reproducible builds.',
       },
       {
-        title: 'Lumen AI 1.0 on Maven Central',
-        text: 'Lumen\'s search, text, face and subtitle engines are a library other apps can use. It is on GitHub now, at an early stage.',
+        title: 'Lumen AI 1.0',
+        text: 'Lumen\'s search, text, face and subtitle engines are a library other apps can use, on Maven Central. Version 1.0 makes its API stable.',
       },
       {
         title: 'More phones',

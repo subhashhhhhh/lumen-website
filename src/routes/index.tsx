@@ -116,7 +116,7 @@ function Search() {
             </p>
             <ul className="tips reveal">
               <li>
-                <code>"so baby come light me up"</code> exact words, in photos and videos
+                <code>"tennis"</code> exact words, in photos and videos
               </li>
               <li>
                 <code>mai and daniel</code> photos with both of them
