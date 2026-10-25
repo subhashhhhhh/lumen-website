@@ -19,6 +19,13 @@ export const Route = createRootRoute({
       { rel: 'icon', type: 'image/png', href: '/brand/app-icon.png' },
       { rel: 'apple-touch-icon', href: '/brand/app-icon.png' },
     ],
+    scripts: [
+      {
+        defer: true,
+        src: 'https://analytics.fastlytics.app/script.js',
+        'data-website-id': 'a753c0f1-1970-4274-9334-5fab910ea4c6',
+      },
+    ],
   }),
   shellComponent: RootDocument,
 })
