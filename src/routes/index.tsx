@@ -10,7 +10,7 @@ export const Route = createFileRoute('/')({
   head: () =>
     seo({
       title: 'Lumen: the private smart gallery for Android',
-      description: 'Find photos by describing them, copy the text in any picture, and see everyone you know. It all runs on your phone: no account, no Google, no cloud. Free and open source.',
+      description: 'Find photos by describing them, copy the text in any picture, see everyone you know, and lift people out of photos. It all runs on your phone: no account, no Google, no cloud. Free and open source.',
       path: '/',
       card: 'home',
       alt: 'Lumen on two phones: a search for "cat sleeping on a chair" and the photo library',
@@ -70,8 +70,8 @@ function Hero() {
             Your photos, <em>smarter.</em> And they never leave your phone.
           </h1>
           <p className="lede reveal">
-            Lumen finds a photo when you describe it, reads the text in your pictures, and groups the people in them.
-            Google Photos does this on Google's servers. Lumen does it on your phone.
+            Lumen finds a photo when you describe it, reads the text in your pictures, groups the people in them, and
+            lifts them out of the photo. Google Photos does this on Google's servers. Lumen does it on your phone.
           </p>
           <div className="actions reveal">
             <a className="button" href="/download" data-umami-event="download-cta" data-umami-event-place="hero">
@@ -141,7 +141,7 @@ function Search() {
             <Specs
               rows={[
                 ['Model', 'SigLIP 2, or CLIP on smaller phones'],
-                ['Runs on', "Your phone's GPU"],
+                ['Runs on', "Your phone's GPU, or the NPU on Snapdragon"],
                 ['Sends', 'Nothing'],
               ]}
             />
@@ -169,8 +169,8 @@ function LiveText() {
               Select the words in <em>any</em> photo.
             </h2>
             <p className="body reveal">
-              Long-press a word, drag to select more, then copy, search or share it. Links, phone numbers and email
-              addresses open with a tap. Pause a video and its text is selectable too.
+              Long-press a word and drag to select more, with Android's own handles and toolbar. Copy, share or
+              translate it. Links, phone numbers and addresses open with a tap. Pause a video and its text is selectable too.
             </p>
             <p className="body reveal">
               The same text makes your screenshots, receipts and signs searchable. Put words in quotes to find an exact
@@ -216,7 +216,7 @@ function People() {
             </ul>
             <Specs
               rows={[
-                ['Models', 'YuNet and SFace'],
+                ['Models', 'YuNet, with AdaFace or EdgeFace'],
                 ['Faces stored', 'On your phone only'],
                 ['Sends', 'Nothing'],
               ]}
@@ -232,11 +232,14 @@ function People() {
 }
 
 const MORE = [
+  { title: 'Cutout', text: 'Touch and hold a person or an object to lift it off the photo. Copy, share or save it as a PNG.' },
+  { title: 'Faster on Snapdragon', text: 'On 40 Snapdragon chips, search, text and faces run on the NPU: indexing is up to 9 times faster.' },
   { title: 'Details, one swipe up', text: 'Camera, lens, time zone, a map of where it was taken, and who is in it.' },
   { title: 'Film strip', text: 'Skim through everything with a strip of thumbnails under the photo.' },
   { title: 'Subtitles, made offline', text: 'Tap CC on a video to make subtitles. Copy them or save them as SRT.' },
   { title: 'Hidden and encrypted', text: 'Keep private photos behind a lock, encrypted on your storage.' },
   { title: 'Indexes while you sleep', text: 'Pick overnight hours, and Lumen does its work while the phone is idle.' },
+  { title: 'New photos, at once', text: 'A new photo or screenshot is in the grid as soon as it is saved.' },
   { title: 'Liquid Glass', text: 'Glass buttons and bars that bend the photo behind them. Turn it off any time.' },
 ]
 
@@ -334,7 +337,7 @@ const FAQ: [string, React.ReactNode][] = [
   ],
   [
     'How much space do the smart features take?',
-    'Each one is optional. All of them together are about 340 MB with the Fast search model, or 770 MB with the Accurate one. The app download itself is about 70 MB.',
+    'Each one is optional. All of them together are about 440 MB with the Fast search model, or 860 MB with the Accurate one. The app download itself is about 60 MB.',
   ],
   [
     'Will it drain my battery?',

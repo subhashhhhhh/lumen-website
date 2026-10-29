@@ -72,7 +72,7 @@ function LumenAiGuide() {
             <p className="body">Lumen AI is on Maven Central. Add it to the build file of your app:</p>
             <Code>{`
 dependencies {
-    implementation("app.lumen-photos:lumen-ai:0.1.0")
+    implementation("app.lumen-photos:lumen-ai:0.1.7")
 }
 `}</Code>
             <p className="body">
@@ -120,7 +120,7 @@ LumenAi.install(this) {
               </div>
               <div>
                 <dt>ModelPack.Faces</dt>
-                <dd>People. 39 MB.</dd>
+                <dd>People. 15 MB (EdgeFace), or AdaFace on a Snapdragon NPU.</dd>
               </div>
               <div>
                 <dt>ModelPack.Subtitles</dt>

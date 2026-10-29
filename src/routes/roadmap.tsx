@@ -23,6 +23,10 @@ const GROUPS: { name: string; note: string; items: Item[] }[] = [
     note: 'What is being worked on now.',
     items: [
       {
+        title: 'Magic Eraser',
+        text: 'Remove people and things from a photo, on your phone. It builds on Cutout, which finds what to remove.',
+      },
+      {
         title: 'Offline edition',
         text: 'A second build with no internet permission at all. You download the model files on a computer, import them, and Lumen checks each one before use.',
       },
@@ -58,7 +62,7 @@ const GROUPS: { name: string; note: string; items: Item[] }[] = [
       },
       {
         title: 'Lumen Lab',
-        text: 'A benchmark app that tests how Lumen runs on your phone, including experimental NPU support. You can share the results, and see other phones on this site.',
+        text: 'A benchmark app that tests how Lumen runs on your phone: CPU, GPU and NPU. You can share the results, and see other phones on this site.',
       },
       {
         title: 'Google Play',
@@ -91,6 +95,11 @@ const SHIPPED = [
   'Liquid Glass and Reduce Blur settings',
   'In-app updates',
   'Lumen AI, the smart features as a library (early)',
+  'NPU acceleration on 40 Snapdragon chips',
+  'Accurate face recognition (AdaFace)',
+  "Android's text selection in Live Text",
+  "Filters on a person's page",
+  'Cutout: lift people and objects out of a photo',
 ]
 
 function Roadmap() {
